@@ -1,0 +1,13 @@
+---
+title: "Metodología Estadística"
+author: "David Torres"
+date: "15 de abril de 2019"
+output: html_document
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+

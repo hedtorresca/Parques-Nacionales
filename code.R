@@ -10,42 +10,20 @@ library(FactoMineR)
 library(MASS)
 
 
-tipovar <- c("text", "text", "date", "date","text" , "text", "text", "text", "numeric", "numeric",
-             "numeric", "text",	"text",
-             "text", "text", "text") # Especificar tipo de variables del Dataset
-
-
-tipovar2 <- c("text", "text", "date", "date","text" , "text", "text", "text", "numeric", "numeric",
-             "numeric", "text",	"text",
-             "text", "text", "text") # Especificar tipo de variables del Dataset
-
-
-
-#Lectura de bases de datos
-
-uso <- read_excel("Uso2.xlsx", 
-                       sheet = 1,  col_types = tipovar)
-
-d2 <- uso  %>% select( "vereda", "uso", "pecuario", "agricola", "año de construccion")
-
-
-
-acm <- mca(d2)
-acm$eig
 
 detach("package:FactoMineR", unload=TRUE)
 detach("package:MASS", unload=TRUE)
 
 
-tipovar3 <- c("text", "text", "text" , "text", "text", "text",
-              "text",	"text","text", "text", "text", "text",
+tipovar <- c("text", "text", "text" , "text", "text", "text",
+              "text",	"text","text", "text", "text", "text", "text",
               "numeric", "numeric", "text", "text")
 
 index <- read_excel("Uso.xlsx", 
                     sheet = 1,  col_types = tipovar3)
 
 names(index)
-var <- index  %>% dplyr::select( "Área protegida", "cuenca", "Tipo comunidad", "grupoComunitario", "Permanencia")
+var <- index  %>% dplyr::select( "Área protegida", "cuenca", "Adquisición", "Comunidad", "grupoComunitario", "Permanencia", "Año")
 
 var <- as.data.frame(var)
 
@@ -85,3 +63,14 @@ s.chull(newacm$li, var$Permanencia, col = brewer.pal(4, "Set1"))
 s.class(newacm$li, d$trav.imp, col = brewer.pal(4, "Set1"))
 
 scatter(newacm, col = brewer.pal(4, "Set1"))
+
+tipovar <- c("text", "text", "date", "date","text" , "text", "text", "text", "numeric", "numeric",
+             "numeric", "text",	"text",
+             "text", "text", "text") # Especificar tipo de variables del Dataset
+
+
+tipovar2 <- c("text", "text", "date", "date","text" , "text", "text", "text", "numeric", "numeric",
+              "numeric", "text",	"text",
+              "text", "text", "text") # Especificar tipo de variables del Dataset
+
+
